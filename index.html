@@ -3,58 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Warm Ups - Interactive Fitness Game</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Warm Ups - Transform Fitness into Play</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #673AB7;
             --secondary: #512DA8;
-            --light: #EDE7F6;
-            --dark: #343a40;
-            --text: #6c757d;
+            --dark: #333;
+            --text: #555;
         }
-        
+
         body {
             font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
             color: var(--text);
             line-height: 1.6;
+            background-color: #f8f9fa; /* Added a light background for better contrast */
         }
-        
+
         /* Header */
         .navbar {
             padding: 20px 0;
             position: fixed;
             width: 100%;
             top: 0;
-            z-index: 999;
+            z-index: 1000; /* Ensured it stays above other elements */
             background: rgba(255,255,255,0.95);
             box-shadow: 0 2px 15px rgba(0,0,0,0.1);
         }
-        
+
         .container {
             width: 90%;
             max-width: 1200px;
             margin: 0 auto;
+            padding: 0 15px; /* Added padding for better responsiveness */
         }
-        
+
         .navbar .container {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-        
+
         .logo {
             font-size: 24px;
             font-weight: 700;
             color: var(--primary);
         }
-        
+
         .logo img {
             height: 40px;
+            vertical-align: middle; /* Aligned image with text */
+            margin-right: 10px; /* Added some space next to the logo */
         }
-        
+
         .btn {
             display: inline-block;
             background: var(--primary);
@@ -65,33 +70,33 @@
             font-weight: 500;
             transition: all 0.3s ease;
         }
-        
+
         .btn:hover {
             background: var(--secondary);
             transform: translateY(-3px);
             box-shadow: 0 10px 20px rgba(103, 58, 183, 0.2);
         }
-        
+
         /* Hero Section */
         .hero {
             padding: 180px 0 100px;
             background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
             text-align: center;
         }
-        
+
         .hero h1 {
             font-size: 48px;
             font-weight: 700;
             color: var(--dark);
             margin-bottom: 20px;
         }
-        
+
         .hero p {
             font-size: 18px;
             max-width: 700px;
             margin: 0 auto 40px;
         }
-        
+
         .hero-image {
             max-width: 800px;
             margin: 50px auto 0;
@@ -99,89 +104,92 @@
             overflow: hidden;
             box-shadow: 0 20px 40px rgba(0,0,0,0.1);
         }
-        
+
         .hero-image img {
             width: 100%;
             display: block;
         }
-        
-        /* Features Section */
+
+        /* Section Styles */
         .section {
-            padding: 100px 0;
+            padding: 80px 0; /* Adjusted padding for better spacing */
         }
-        
+
         .section-title {
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 40px; /* Adjusted margin */
         }
-        
+
         .section-title h2 {
             font-size: 36px;
             font-weight: 700;
             color: var(--dark);
             margin-bottom: 15px;
         }
-        
+
         .section-title p {
             max-width: 700px;
             margin: 0 auto;
+            color: var(--text); /* Ensured text color */
         }
-        
+
+        /* Features Section */
         .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
         }
-        
+
         .feature-card {
             background: white;
             border-radius: 10px;
             padding: 30px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
             transition: all 0.3s ease;
+            height: 100%; /* Ensured equal height for cards */
         }
-        
+
         .feature-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 15px 30px rgba(0,0,0,0.1);
         }
-        
-        /* Different card colors for "Why Choose Warm Ups" section */
+
         .feature-card.card-1 {
             border-top: 5px solid #B39DDB;
         }
-        
+
         .feature-card.card-2 {
             border-top: 5px solid #7E57C2;
         }
-        
+
         .feature-card.card-3 {
             border-top: 5px solid #5E35B1;
         }
-        
+
         .feature-icon {
             font-size: 40px;
             color: var(--primary);
             margin-bottom: 20px;
         }
-        
+
         .feature-card h3 {
             font-size: 22px;
             font-weight: 600;
             color: var(--dark);
             margin-bottom: 15px;
         }
-        
+
         /* Bullet points for variation descriptions */
         .variation-content ul {
             padding-left: 20px;
             margin: 15px 0;
+            list-style-type: disc; /* Standard bullet style */
         }
-        
+
         .variation-content li {
             margin-bottom: 8px;
         }
-        
+
         /* Variations Section */
         .variation-card {
             background: white;
@@ -189,13 +197,15 @@
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
             transition: all 0.3s ease;
+            display: flex; /* For aligning image and content */
+            flex-direction: column; /* Stack image and content on smaller screens */
         }
-        
+
         .variation-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 15px 30px rgba(0,0,0,0.1);
         }
-        
+
         .variation-image {
             height: 200px;
             background: #eee;
@@ -204,19 +214,26 @@
             justify-content: center;
             color: #999;
             font-size: 14px;
+            border-bottom: 1px solid #ddd; /* Added a separator */
         }
-        
+
+        .variation-image img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: cover; /* Ensures image covers the area without distortion */
+        }
+
         .variation-content {
             padding: 25px;
         }
-        
+
         .variation-content h3 {
             font-size: 20px;
             font-weight: 600;
             color: var(--dark);
             margin-bottom: 10px;
         }
-        
+
         .variation-content .level {
             display: inline-block;
             padding: 3px 10px;
@@ -225,31 +242,27 @@
             font-weight: 500;
             margin-bottom: 15px;
         }
-        
+
         .level-beginner {
             background: #e3f9e5;
             color: #28a745;
         }
-        
+
         .level-intermediate {
             background: #fff8e1;
             color: #ffc107;
         }
-        
+
         .level-advanced {
             background: #ffe8e8;
             color: #dc3545;
         }
-        
+
         /* Implementation Guide Section */
         .guide-step {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
             margin-bottom: 40px;
         }
-        
+
         .guide-image {
             width: 100%;
             max-width: 400px;
@@ -262,27 +275,133 @@
             justify-content: center;
             color: var(--primary);
             font-weight: 500;
+            overflow: hidden; /* To contain the border-radius */
         }
-        
+
+        .guide-image img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: cover;
+        }
+
+        .guide-card {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            border: 3px solid transparent; /* Initially transparent, color set per section */
+        }
+
+        .guide-card-header {
+            color: white;
+            padding: 12px 16px;
+            font-size: 1.5em;
+            font-weight: bold;
+            border-top-left-radius: 13px; /* Adjusted for border */
+            border-top-right-radius: 13px; /* Adjusted for border */
+            margin: -3px;
+            margin-bottom: 0;
+        }
+
+        .guide-card-content {
+            padding: 8px 16px;
+        }
+
+        .guide-card-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .guide-card-content ul li {
+            position: relative;
+            padding-left: 24px;
+            margin-bottom: 8px;
+            font-weight: normal;
+            color: black;
+            line-height: 1.5;
+        }
+
+        .guide-card-content ul li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            top: 50%; /* Center vertically */
+            transform: translateY(-50%); /* Adjust for precise centering */
+            color: black;
+            font-size: 1.2em;
+            line-height: 1;
+        }
+
+        /* Specific card styles for Implementation Guide steps */
+        .guide-step:nth-child(3) .guide-card { /* Installation */
+            border-color: #B39DDB;
+        }
+
+        .guide-step:nth-child(3) .guide-card-header {
+            background-color: #B39DDB;
+        }
+
+        .guide-step:nth-child(4) .guide-card { /* Initialization */
+            border-color: #7E57C2;
+        }
+
+        .guide-step:nth-child(4) .guide-card-header {
+            background-color: #7E57C2;
+        }
+
+        .guide-step:nth-child(5) .guide-card { /* Game Configuration */
+            border-color: #5E35B1;
+        }
+
+        .guide-step:nth-child(5) .guide-card-header {
+            background-color: #5E35B1;
+        }
+
+        .guide-step:nth-child(6) .guide-card { /* Network Setup */
+            border-color: #9CCC65; /* Example color */
+        }
+
+        .guide-step:nth-child(6) .guide-card-header {
+            background-color: #9CCC65;
+        }
+
+        .guide-step:nth-child(7) .guide-card { /* Device Placement */
+            border-color: #FFB74D; /* Example color */
+        }
+
+        .guide-step:nth-child(7) .guide-card-header {
+            background-color: #FFB74D;
+        }
+
+        .guide-step:nth-child(8) .guide-card { /* Game Execution */
+            border-color: #F44336; /* Example color */
+        }
+
+        .guide-step:nth-child(8) .guide-card-header {
+            background-color: #F44336;
+        }
+
         .guide-content {
             max-width: 600px;
         }
-        
+
         .guide-content h3 {
             font-size: 24px;
             color: var(--dark);
             margin-bottom: 15px;
         }
-        
+
         .guide-content ul {
             text-align: left;
             padding-left: 20px;
+            list-style-type: disc; /* Standard bullet style */
         }
-        
+
         .guide-content li {
             margin-bottom: 8px;
         }
-        
+
         /* CTA Section */
         .cta {
             background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
@@ -292,94 +411,174 @@
             border-radius: 10px;
             margin: 50px 0;
         }
-        
+
         .cta h2 {
             font-size: 36px;
             font-weight: 700;
             margin-bottom: 20px;
         }
-        
+
         .cta p {
             max-width: 700px;
             margin: 0 auto 30px;
             font-size: 18px;
         }
-        
+
         .btn-light {
             background: white;
             color: var(--primary);
         }
-        
+
         .google-play-badge {
             height: 60px;
         }
-        
+
         /* Footer */
         .footer {
             background: var(--dark);
             color: white;
             padding: 60px 0 30px;
+            text-align: center; /* Center aligned footer content */
         }
-        
+
+        .footer .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
         .footer-logo {
             font-size: 24px;
             font-weight: 700;
             margin-bottom: 20px;
         }
-        
+
         .footer-links {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
             margin-bottom: 40px;
+            text-align: left;
         }
-        
+
+        .footer-links div {
+            min-width: 200px;
+        }
+
         .footer-links h3 {
             font-size: 18px;
             font-weight: 600;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
-        
+
         .footer-links ul {
             list-style: none;
             padding: 0;
         }
-        
+
         .footer-links li {
             margin-bottom: 10px;
         }
-        
+
         .footer-links a {
             color: #adb5bd;
             text-decoration: none;
             transition: color 0.3s ease;
         }
-        
+
         .footer-links a:hover {
             color: white;
         }
-        
+
         .copyright {
-            text-align: center;
             padding-top: 30px;
             border-top: 1px solid rgba(255,255,255,0.1);
             color: #adb5bd;
             font-size: 14px;
+            margin-top: 20px; /* Added some space above copyright */
+        }
+
+        /* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+            .container {
+                width: 95%;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr; /* Stack features on smaller screens */
+            }
+
+            .variation-card {
+                flex-direction: column; /* Stack variation image and content */
+            }
+
+            .footer-links {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .footer-links div {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+
+            /* Implementation Guide - Two Column Layout for Desktop */
+            .guide-step {
+                display: flex;
+                flex-direction: column; /* Default to column for mobile */
+                align-items: center;
+            }
+
+            .guide-image {
+                margin-right: 0; /* Reset mobile margin */
+                margin-bottom: 20px; /* Keep margin for mobile */
+                max-width: 100%; /* Full width on mobile */
+            }
+
+            .guide-card {
+                width: 100%; /* Full width on mobile */
+            }
+        }
+
+        @media (min-width: 992px) {
+            .guide-step {
+                flex-direction: row;
+                align-items: flex-start;
+                gap: 30px;
+            }
+
+            .guide-image {
+                margin-right: 30px;
+                margin-bottom: 0;
+                max-width: 50%; /* Adjust as needed for desktop layout */
+            }
+
+            .guide-card {
+                width: 50%; /* Adjust as needed for desktop layout */
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
+
     <nav class="navbar">
         <div class="container">
-            <div class="logo">
+            <a href="#" class="logo">
                 <img src="logo-placeholder.png" alt="Warm Ups Logo">
+                Warm Ups
+            </a>
+            <div>
+                <a href="#download" class="btn">Download App</a>
             </div>
-            <a href="https://play.google.com/store/apps/details?id=com.ar.touchrace" class="btn">Download Now</a>
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section class="hero">
         <div class="container">
             <h1>Transform Fitness into Play</h1>
@@ -392,9 +591,7 @@
             </div>
         </div>
     </section>
-
-    <!-- Features Section -->
-    <section class="section">
+<section class="section">
         <div class="container">
             <div class="section-title">
                 <h2>Why Choose Warm Ups</h2>
@@ -420,7 +617,6 @@
         </div>
     </section>
 
-    <!-- Variations Section -->
     <section class="section" style="background: #f8f9fa;">
         <div class="container">
             <div class="section-title">
@@ -428,9 +624,10 @@
                 <p>Whether you're looking to energize your morning, break the ice at a gathering, or simply get moving with friends, Warm Ups makes fitness playful and inclusive.</p>
             </div>
             <div class="features-grid">
-                <!-- Beginner Variation -->
                 <div class="variation-card">
-                    <div class="variation-image" style="background: #e3f9e5;">[Tiptoe Walk Image]</div>
+                    <div class="variation-image">
+                        <img src="tiptoe-walk-placeholder.jpg" alt="Tiptoe Walk">
+                    </div>
                     <div class="variation-content">
                         <h3>Tiptoe Walk</h3>
                         <span class="level level-beginner">Beginner</span>
@@ -442,10 +639,11 @@
                         </ul>
                     </div>
                 </div>
-                
-                <!-- Intermediate Variation -->
+
                 <div class="variation-card">
-                    <div class="variation-image" style="background: #fff8e1;">[Crouch Walk Image]</div>
+                    <div class="variation-image">
+                        <img src="crouch-walk-placeholder.jpg" alt="Crouch Walk">
+                    </div>
                     <div class="variation-content">
                         <h3>Crouch Walk</h3>
                         <span class="level level-intermediate">Intermediate</span>
@@ -457,10 +655,11 @@
                         </ul>
                     </div>
                 </div>
-                
-                <!-- Advanced Variation -->
+
                 <div class="variation-card">
-                    <div class="variation-image" style="background: #ffe8e8;">[Blindfolded Partner Image]</div>
+                    <div class="variation-image">
+                        <img src="blindfolded-partner-placeholder.jpg" alt="Blindfolded Partner">
+                    </div>
                     <div class="variation-content">
                         <h3>Blindfolded Partner</h3>
                         <span class="level level-advanced">Advanced</span>
@@ -475,95 +674,125 @@
             </div>
         </div>
     </section>
-
-    <!-- Implementation Guide Section -->
-    <section class="section">
+<section class="section">
         <div class="container">
             <div class="section-title">
                 <h2>Implementation Guide</h2>
                 <p>Seamless setup process to get your interactive fitness session started quickly</p>
             </div>
-            
+
             <div class="guide-step">
-                <div class="guide-image">[Installation Screenshot]</div>
-                <div class="guide-content">
-                    <h3>1. Installation</h3>
-                    <ul>
-                        <li>Download from Google Play Store on all Android devices</li>
-                        <li>Minimum Android version 8.0 required</li>
-                        <li>Approximately 15MB download size</li>
-                    </ul>
+                <div class="guide-image">
+                    <img src="installation-placeholder.jpg" alt="Installation Screenshot">
+                </div>
+                <div class="guide-card">
+                    <div class="guide-card-header" style="background-color: #B39DDB; border-color: #B39DDB;">
+                        <h3>1. Installation</h3>
+                    </div>
+                    <div class="guide-card-content">
+                        <ul>
+                            <li>Download from Google Play Store on all Android devices</li>
+                            <li>Minimum Android version 8.0 required</li>
+                            <li>Approximately 15MB download size</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-            
             <div class="guide-step">
-                <div class="guide-image">[Initialization Screenshot]</div>
-                <div class="guide-content">
-                    <h3>2. Initialization</h3>
-                    <ul>
-                        <li>Launch the Warm Ups application</li>
-                        <li>Select Single Glow or Two Glow mode</li>
-                        <li>Grant necessary permissions (location, Bluetooth)</li>
-                    </ul>
+                <div class="guide-image">
+                    <img src="initialization-placeholder.jpg" alt="Initialization Screenshot">
+                </div>
+                <div class="guide-card">
+                    <div class="guide-card-header" style="background-color: #7E57C2; border-color: #7E57C2;">
+                        <h3>2. Initialization</h3>
+                    </div>
+                    <div class="guide-card-content">
+                        <ul>
+                            <li>Launch the Warm Ups application</li>
+                            <li>Select Single Glow or Two Glow mode</li>
+                            <li>Grant necessary permissions (location, Bluetooth)</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-            
+
             <div class="guide-step">
-                <div class="guide-image">[Configuration Screenshot]</div>
-                <div class="guide-content">
-                    <h3>3. Game Configuration</h3>
-                    <ul>
-                        <li>Choose between Count-Based or Duration-Based format</li>
-                        <li>Count-Based: Set target number of device activations</li>
-                        <li>Duration-Based: Set time limit for the session</li>
-                        <li>Adjust difficulty settings as needed</li>
-                    </ul>
+                <div class="guide-image">
+                    <img src="configuration-placeholder.jpg" alt="Configuration Screenshot">
+                </div>
+                <div class="guide-card">
+                    <div class="guide-card-header" style="background-color: #5E35B1; border-color: #5E35B1;">
+                        <h3>3. Game Configuration</h3>
+                    </div>
+                    <div class="guide-card-content">
+                        <ul>
+                            <li>Choose between Count-Based or Duration-Based format</li>
+                            <li>Count-Based: Set target number of device activations</li>
+                            <li>Duration-Based: Set time limit for the session</li>
+                            <li>Adjust difficulty settings as needed</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-            
+
             <div class="guide-step">
-                <div class="guide-image">[Network Setup Screenshot]</div>
-                <div class="guide-content">
-                    <h3>4. Network Setup</h3>
-                    <ul>
-                        <li>Host device generates unique game code</li>
-                        <li>Participants enter code to join session</li>
-                        <li>All devices connect via local WiFi or Bluetooth</li>
-                        <li>Connection status visible on all devices</li>
-                    </ul>
+                <div class="guide-image">
+                    <img src="network-setup-placeholder.jpg" alt="Network Setup Screenshot">
+                </div>
+                <div class="guide-card">
+                    <div class="guide-card-header" style="background-color: #9CCC65; border-color: #9CCC65;">
+                        <h3>4. Network Setup</h3>
+                    </div>
+                    <div class="guide-card-content">
+                        <ul>
+                            <li>Host device generates unique game code</li>
+                            <li>Participants enter code to join session</li>
+                            <li>All devices connect via local WiFi or Bluetooth</li>
+                            <li>Connection status visible on all devices</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-            
             <div class="guide-step">
-                <div class="guide-image">[Device Placement Screenshot]</div>
-                <div class="guide-content">
-                    <h3>5. Device Placement</h3>
-                    <ul>
-                        <li>Arrange devices according to selected variation</li>
-                        <li>Space devices 2-3 meters apart for optimal play</li>
-                        <li>Ensure flat, stable surfaces</li>
-                        <li>Consider safety when placing devices</li>
-                    </ul>
+                <div class="guide-image">
+                    <img src="device-placement-placeholder.jpg" alt="Device Placement Screenshot">
+                </div>
+                <div class="guide-card">
+                    <div class="guide-card-header" style="background-color: #FFB74D; border-color: #FFB74D;">
+                        <h3>5. Device Placement</h3>
+                    </div>
+                    <div class="guide-card-content">
+                        <ul>
+                            <li>Arrange devices according to selected variation</li>
+                            <li>Space devices 2-3 meters apart for optimal play</li>
+                            <li>Ensure flat, stable surfaces</li>
+                            <li>Consider safety when placing devices</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-            
+
             <div class="guide-step">
-                <div class="guide-image">[Game Execution Screenshot]</div>
-                <div class="guide-content">
-                    <h3>6. Game Execution</h3>
-                    <ul>
-                        <li>Host initiates the session</li>
-                        <li>Real-time progress visible on all devices</li>
-                        <li>Visual and audio feedback for interactions</li>
-                        <li>Session summary displayed upon completion</li>
-                    </ul>
+                <div class="guide-image">
+                    <img src="game-execution-placeholder.jpg" alt="Game Execution Screenshot">
+                </div>
+                <div class="guide-card">
+                    <div class="guide-card-header" style="background-color: #F44336; border-color: #F44336;">
+                        <h3>6. Game Execution</h3>
+                    </div>
+                    <div class="guide-card-content">
+                        <ul>
+                            <li>Host initiates the session</li>
+                            <li>Real-time progress visible on all devices</li>
+                            <li>Visual and audio feedback for interactions</li>
+                            <li>Session summary displayed upon completion</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- CTA Section -->
-    <section class="section">
+<section class="section">
         <div class="container">
             <div class="cta">
                 <h2>Ready to Transform Your Fitness Routine?</h2>
@@ -574,17 +803,14 @@
             </div>
         </div>
     </section>
-
-    <!-- Footer -->
-    <footer class="footer">
+<footer class="footer">
         <div class="container">
+            <div class="footer-logo">
+                Warm Ups
+            </div>
             <div class="footer-links">
                 <div>
-                    <h3>Warm Ups</h3>
-                    <p>Transforming fitness and team bonding through interactive challenges.</p>
-                </div>
-                <div>
-                    <h3>Quick Links</h3>
+                    <h3>About</h3>
                     <ul>
                         <li><a href="#">Features</a></li>
                         <li><a href="#">Activities</a></li>
@@ -601,11 +827,20 @@
                         <li><a href="#">Privacy</a></li>
                     </ul>
                 </div>
+                <div>
+                    <h3>Connect</h3>
+                    <ul>
+                        <li><a href="#"><img src="facebook-icon.png" alt="Facebook" style="height: 20px; vertical-align: middle; margin-right: 5px;"> Facebook</a></li>
+                        <li><a href="#"><img src="twitter-icon.png" alt="Twitter" style="height: 20px; vertical-align: middle; margin-right: 5px;"> Twitter</a></li>
+                        <li><a href="#"><img src="instagram-icon.png" alt="Instagram" style="height: 20px; vertical-align: middle; margin-right: 5px;"> Instagram</a></li>
+                    </ul>
+                </div>
             </div>
             <div class="copyright">
                 <p>&copy; 2025 AR Technologies. All rights reserved.</p>
             </div>
         </div>
     </footer>
+
 </body>
 </html>
